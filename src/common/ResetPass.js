@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import UserService from '../services/user.service'; // Import the UserService
 
-const API_URL = "http://35.154.46.100"; // Replace with your actual API URL
+const API_URL = "/api"; // Replace with your actual API URL
 
 function ResetPass() {
   const [step, setStep] = useState(1);
@@ -13,7 +13,7 @@ function ResetPass() {
 
   const handleRequestReset = () => {
     axios
-      .post(`${API_URL}/api/request`, { email })
+      .post(`${API_URL}/request`, { email })
       .then((response) => {
         setMessage(response.data.message);
         setStep(2); // Move to the OTP entry step
@@ -25,7 +25,7 @@ function ResetPass() {
 
   const handleVerifyOTP = () => {
     axios
-      .post(`${API_URL}/api/verify`, { email, otp })
+      .post(`${API_URL}/verify`, { email, otp })
       .then((response) => {
         setMessage(response.data.message);
         setStep(3); // Move to the new password entry step

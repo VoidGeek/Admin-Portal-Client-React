@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/api",
     createProxyMiddleware({
-      target: "http://35.154.46.100",
+      target: "https://vercel-api-ashen-iota.vercel.app",
       changeOrigin: true,
     })
   );

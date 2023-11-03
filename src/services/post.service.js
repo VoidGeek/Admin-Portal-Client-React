@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://35.154.46.100/api"; // Replace with your actual API URL
+const API_URL = "/api"; // Replace with your actual API URL
 
 // Fetch all posts
 const getAllPosts = () => {
