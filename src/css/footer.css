@@ -1,0 +1,11 @@
+/* In your CSS file or a new CSS file */
+.custom-gradient-bg {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(216, 217, 161, 1) 32%,
+    rgba(183, 206, 210, 1) 53%,
+    rgba(227, 186, 191, 1) 78%,
+    rgba(225, 228, 200, 1) 100%
+  );
+}
