@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://demo-test-peach.vercel.app/api"; // Replace with your actual API URL
+const API_URL = "http://35.154.46.100:8080/api"; // Replace with your actual API URL
 
 // Fetch all images
 const getAllImages = () => {
