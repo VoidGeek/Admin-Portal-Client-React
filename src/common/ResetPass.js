@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import UserService from '../services/user.service'; // Import the UserService
 
-const API_URL = "https://demo-test-peach.vercel.app/home/api"; // Replace with your actual API URL
+const API_URL = "https://vercel-api-ashen-iota.vercel.app/api"; // Replace with your actual API URL
 
 function ResetPass() {
   const [step, setStep] = useState(1);
