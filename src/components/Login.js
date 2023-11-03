@@ -74,7 +74,7 @@ const Login = () => {
     <div className="min-h-screen bg-gradient-to-r from-green-300 to-green-100 flex justify-center items-center">
       <div className="w-auto mx-auto p-6 rounded-lg shadow-md bg-opacity-70 backdrop-blur-100 mt-8 flex">
         <div className="w-full p-6">
-          <h2 className="text-2xl font-bold text-center mb-6">Welcome Back!</h2>
+          <h2 className="text-2xl font-bold text-center mb-6">Welcome!</h2>
           <Form onSubmit={handleLogin} ref={form}>
             <div className="mb-4">
               <label htmlFor="username" className="text-gray-500"></label>
