@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import UserService from '../services/user.service'; // Import the UserService
 
-const API_URL = "http://localhost:3000"; // Replace with your actual API URL
+const API_URL = "http://35.154.46.100"; // Replace with your actual API URL
 
 function ResetPass() {
   const [step, setStep] = useState(1);
