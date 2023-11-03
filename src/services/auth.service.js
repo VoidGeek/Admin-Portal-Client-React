@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "/api/auth/";
+const API_URL = "https://demo-test-peach.vercel.app/home/api/auth/";
 
 const register = (username, email, password, fullName, phoneNo, roles) => {
   return axios.post(API_URL + "signup", {
