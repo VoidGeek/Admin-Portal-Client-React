@@ -1,0 +1,9 @@
+{
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "https://vercel-api-ashen-iota.vercel.app/api/$1"
+      }
+    ]
+  }
+  
