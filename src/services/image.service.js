@@ -5,7 +5,9 @@ const API_URL = process.env.NODE_ENV === "production" ? "https://vercel-api-ashe
 // Fetch all images
 const getAllImages = () => {
   return axios
-    .get(`${API_URL}/images`)
+    .get(`${API_URL}/images`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -18,7 +20,9 @@ const getAllImages = () => {
 // Upload a new image
 const uploadImage = (image) => {
   return axios
-    .post(`${API_URL}/upload`, image)
+    .post(`${API_URL}/upload`, image,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -31,7 +35,9 @@ const uploadImage = (image) => {
 // Update an image
 const updateImage = (s3Key, updatedImage) => {
   return axios
-    .put(`${API_URL}/images/${s3Key}`, updatedImage)
+    .put(`${API_URL}/images/${s3Key}`, updatedImage,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -44,7 +50,9 @@ const updateImage = (s3Key, updatedImage) => {
 // Delete an image
 const deleteImage = (imageId) => {
   return axios
-    .delete(`${API_URL}/images/${imageId}`)
+    .delete(`${API_URL}/images/${imageId}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -56,7 +64,9 @@ const deleteImage = (imageId) => {
 
 const getImageByKey = (s3Key) => {
   return axios
-    .get(`${API_URL}/images/${s3Key}`)
+    .get(`${API_URL}/images/${s3Key}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })

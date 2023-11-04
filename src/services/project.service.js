@@ -5,7 +5,9 @@ const API_URL = process.env.NODE_ENV === "production" ? "https://vercel-api-ashe
 // Fetch all projects
 const getAllProjects = () => {
   return axios
-    .get(`${API_URL}/projects`)
+    .get(`${API_URL}/projects`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -18,7 +20,9 @@ const getAllProjects = () => {
 // Fetch a project by ID
 const getProjectById = (projectId) => {
   return axios
-    .get(`${API_URL}/projects/${projectId}`)
+    .get(`${API_URL}/projects/${projectId}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -31,7 +35,9 @@ const getProjectById = (projectId) => {
 // Create a new project
 const createProject = (newProject) => {
   return axios
-    .post(`${API_URL}/projects`, newProject)
+    .post(`${API_URL}/projects`, newProject,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -44,7 +50,9 @@ const createProject = (newProject) => {
 // Update an existing project
 const updateProject = (projectId, updatedProject) => {
   return axios
-    .put(`${API_URL}/projects/${projectId}`, updatedProject)
+    .put(`${API_URL}/projects/${projectId}`, updatedProject,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -57,7 +65,9 @@ const updateProject = (projectId, updatedProject) => {
 // Delete a project
 const deleteProject = (projectId) => {
   return axios
-    .delete(`${API_URL}/projects/${projectId}`)
+    .delete(`${API_URL}/projects/${projectId}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })

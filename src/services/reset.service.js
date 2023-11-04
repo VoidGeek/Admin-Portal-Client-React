@@ -5,7 +5,9 @@ const API_URL = process.env.NODE_ENV === "production" ? "https://vercel-api-ashe
 // Fetch all projects
 const requestReset = (email) => {
     return axios
-      .post(`${API_URL}/request`, { email })
+      .post(`${API_URL}/request`, { email },{
+        withCredentials: true, // Include credentials (cookies) with the request
+      })
       .then((response) => {
         return response.data;
       })
@@ -17,7 +19,9 @@ const requestReset = (email) => {
   
   const verifyOTP = (email, otp) => {
     return axios
-      .post(`${API_URL}/verify`, { email, otp })
+      .post(`${API_URL}/verify`, { email, otp },{
+        withCredentials: true, // Include credentials (cookies) with the request
+      })
       .then((response) => {
         return response.data;
       })

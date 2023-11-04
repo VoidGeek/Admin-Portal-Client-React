@@ -5,7 +5,9 @@ const API_URL = process.env.NODE_ENV === "production" ? "https://vercel-api-ashe
 // Fetch all testimonials
 const getAllTestimonials = () => {
   return axios
-    .get(`${API_URL}/testimonials`)
+    .get(`${API_URL}/testimonials`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -18,7 +20,9 @@ const getAllTestimonials = () => {
 // Create a new testimonial
 const createTestimonial = (newTestimonial) => {
   return axios
-    .post(`${API_URL}/testimonials`, newTestimonial)
+    .post(`${API_URL}/testimonials`, newTestimonial,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -31,7 +35,9 @@ const createTestimonial = (newTestimonial) => {
 // Update an existing testimonial
 const updateTestimonial = (testimonialId, updatedTestimonial) => {
   return axios
-    .put(`${API_URL}/testimonials/${testimonialId}`, updatedTestimonial)
+    .put(`${API_URL}/testimonials/${testimonialId}`, updatedTestimonial,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -44,7 +50,9 @@ const updateTestimonial = (testimonialId, updatedTestimonial) => {
 // Delete a testimonial
 const deleteTestimonial = (testimonialId) => {
   return axios
-    .delete(`${API_URL}/testimonials/${testimonialId}`)
+    .delete(`${API_URL}/testimonials/${testimonialId}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -57,7 +65,9 @@ const deleteTestimonial = (testimonialId) => {
 // Get a testimonial by its ID
 const getTestimonialById = (testimonialId) => {
   return axios
-    .get(`${API_URL}/testimonials/${testimonialId}`)
+    .get(`${API_URL}/testimonials/${testimonialId}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })

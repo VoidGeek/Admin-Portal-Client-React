@@ -5,7 +5,9 @@ const API_URL = process.env.NODE_ENV === "production" ? "https://vercel-api-ashe
 // Fetch all posts
 const getAllPosts = () => {
   return axios
-    .get(`${API_URL}/posts`)
+    .get(`${API_URL}/posts`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -18,7 +20,9 @@ const getAllPosts = () => {
 // Fetch a post by ID
 const getPostById = (postId) => {
   return axios
-    .get(`${API_URL}/posts/${postId}`)
+    .get(`${API_URL}/posts/${postId}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -31,7 +35,9 @@ const getPostById = (postId) => {
 // Create a new post
 const createPost = (newPost) => {
   return axios
-    .post(`${API_URL}/posts`, newPost)
+    .post(`${API_URL}/posts`, newPost,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -44,7 +50,9 @@ const createPost = (newPost) => {
 // Update an existing post
 const updatePost = (postId, updatedPost) => {
   return axios
-    .put(`${API_URL}/posts/${postId}`, updatedPost)
+    .put(`${API_URL}/posts/${postId}`, updatedPost,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -57,7 +65,9 @@ const updatePost = (postId, updatedPost) => {
 // Delete a post
 const deletePost = (postId) => {
   return axios
-    .delete(`${API_URL}/posts/${postId}`)
+    .delete(`${API_URL}/posts/${postId}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })

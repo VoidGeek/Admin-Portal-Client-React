@@ -5,7 +5,9 @@ const API_URL = process.env.NODE_ENV === "production" ? "https://vercel-api-ashe
 // Fetch all services
 const getAllServices = () => {
   return axios
-    .get(`${API_URL}/services`)
+    .get(`${API_URL}/services`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -18,7 +20,9 @@ const getAllServices = () => {
 // Fetch a service by ID
 const getServiceById = (serviceId) => {
   return axios
-    .get(`${API_URL}/services/${serviceId}`)
+    .get(`${API_URL}/services/${serviceId}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -31,7 +35,9 @@ const getServiceById = (serviceId) => {
 // Create a new service
 const createService = (newService) => {
   return axios
-    .post(`${API_URL}/services`, newService)
+    .post(`${API_URL}/services`, newService,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -44,7 +50,9 @@ const createService = (newService) => {
 // Update an existing service
 const updateService = (serviceId, updatedService) => {
   return axios
-    .put(`${API_URL}/services/${serviceId}`, updatedService)
+    .put(`${API_URL}/services/${serviceId}`, updatedService,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -57,7 +65,9 @@ const updateService = (serviceId, updatedService) => {
 // Delete a service
 const deleteService = (serviceId) => {
   return axios
-    .delete(`${API_URL}/services/${serviceId}`)
+    .delete(`${API_URL}/services/${serviceId}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })

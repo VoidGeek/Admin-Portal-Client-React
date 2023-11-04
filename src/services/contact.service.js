@@ -4,7 +4,9 @@ const API_URL = process.env.NODE_ENV === "production" ? "https://vercel-api-ashe
 
 const getAllContacts = () => {
   return axios
-    .get(`${API_URL}/contacts`)
+    .get(`${API_URL}/contacts`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -16,7 +18,9 @@ const getAllContacts = () => {
 
 const createContact = (newContact) => {
   return axios
-    .post(`${API_URL}/contacts`, newContact)
+    .post(`${API_URL}/contacts`, newContact,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })
@@ -28,7 +32,9 @@ const createContact = (newContact) => {
 
 const deleteContact = (contactId) => {
   return axios
-    .delete(`${API_URL}/contacts/${contactId}`)
+    .delete(`${API_URL}/contacts/${contactId}`,{
+      withCredentials: true, // Include credentials (cookies) with the request
+    })
     .then((response) => {
       return response.data;
     })

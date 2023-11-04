@@ -10,15 +10,18 @@ const register = (username, email, password, fullName, phoneNo, roles) => {
     fullName,
     phoneNo,
     roles,
+  }, {
+    withCredentials: true, // Include credentials (cookies) with the request
   });
 };
-
 
 const login = (username, password) => {
   return axios
     .post(API_URL + "signin", {
       username,
       password,
+    }, {
+      withCredentials: true, // Include credentials (cookies) with the request
     })
     .then((response) => {
       if (response.data.username) {
@@ -31,7 +34,9 @@ const login = (username, password) => {
 
 const logout = () => {
   localStorage.removeItem("users");
-  return axios.post(API_URL + "signout").then((response) => {
+  return axios.post(API_URL + "signout", null, {
+    withCredentials: true, // Include credentials (cookies) with the request
+  }).then((response) => {
     return response.data;
   });
 };
@@ -45,6 +50,6 @@ const AuthService = {
   login,
   logout,
   getCurrentUser,
-}
+};
 
 export default AuthService;
