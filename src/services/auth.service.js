@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = process.env.NODE_ENV === "production" ? "https://vercel-api-ashen-iota.vercel.app/api/auth" : "";
+const API_URL = process.env.NODE_ENV === "production" ? "https://vercel-api-ashen-iota.vercel.app/api/auth/" : "";
 
 const register = (username, email, password, fullName, phoneNo, roles) => {
   return axios.post(API_URL + "signup", {
