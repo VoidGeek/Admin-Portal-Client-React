@@ -13,7 +13,9 @@ function ResetPass() {
 
   const handleRequestReset = () => {
     axios
-      .post(`${API_URL}/request`, { email })
+      .post(`${API_URL}/request`, { email },{
+        withCredentials: true, // Include credentials (cookies) with the request
+      })
       .then((response) => {
         setMessage(response.data.message);
         setStep(2); // Move to the OTP entry step
@@ -25,7 +27,9 @@ function ResetPass() {
 
   const handleVerifyOTP = () => {
     axios
-      .post(`${API_URL}/verify`, { email, otp })
+      .post(`${API_URL}/verify`, { email, otp },{
+        withCredentials: true, // Include credentials (cookies) with the request
+      })
       .then((response) => {
         setMessage(response.data.message);
         setStep(3); // Move to the new password entry step
