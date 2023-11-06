@@ -111,9 +111,9 @@ function AddPost() {
     }
   };
 
-  if (!currentUser || !currentUser.roles.includes('ROLE_ADMIN')) {
+  if (!currentUser || (!currentUser.roles.includes('ROLE_ADMIN') && !currentUser.roles.includes('ROLE_MODERATOR'))) {
     return <NotFoundPage />;
-  }
+  }  
 
   return (
     

@@ -114,9 +114,9 @@ function AddTestimonial() {
     }
   };
 
-  if (!currentUser || !currentUser.roles.includes('ROLE_ADMIN')) {
+  if (!currentUser || (!currentUser.roles.includes('ROLE_ADMIN') && !currentUser.roles.includes('ROLE_MODERATOR'))) {
     return <NotFoundPage />;
-  }
+  }  
 
   const isTestimonialEditable = (adminUser) => {
     return currentUser && currentUser._id === adminUser;

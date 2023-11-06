@@ -113,9 +113,9 @@ function AddService() {
     }
   };
 
-  if (!currentUser || !currentUser.roles.includes('ROLE_ADMIN')) {
+  if (!currentUser || (!currentUser.roles.includes('ROLE_ADMIN') && !currentUser.roles.includes('ROLE_MODERATOR'))) {
     return <NotFoundPage />;
-  }
+  }  
 
   const isServiceEditable = (adminUser) => {
     return currentUser && currentUser._id === adminUser;
