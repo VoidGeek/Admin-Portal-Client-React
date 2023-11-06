@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = process.env.NODE_ENV === "production" ? "/api" : "/api"; // Replace with your actual API URL
+const API_URL = process.env.NODE_ENV === "production" ? "" : "/api"; // Replace with your actual API URL
 
 // Fetch all projects
 const requestReset = (email) => {
