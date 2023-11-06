@@ -72,9 +72,21 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-green-300 to-green-100 flex justify-center items-center">
-      <div className="w-auto mx-auto p-6 rounded-lg shadow-md bg-opacity-70 backdrop-blur-100 mt-8 flex">
-        <div className="w-full p-6">
+      <div className="w-auto mx-auto p-6 rounded-lg shadow-md bg-opacity-70 backdrop-blur-100 mt-8 flex flex-col">
+
+        {/* Image section for mobile view */}
+        <div className="w-full p-1" style={{ marginBottom: "20px" }}>
           <h2 className="text-2xl font-bold text-center mb-6">Welcome!</h2>
+          <img
+            src="https://i.ibb.co/GxmSCf0/image-2023-10-10-193405106-removebg-preview-1-1.png"
+            alt=""
+            className="w-180 h-60 mx-8"
+          />
+        </div>
+
+        {/* Form section */}
+        <div className="w-full p-6">
+          
           <Form onSubmit={handleLogin} ref={form}>
             <div className="mb-4">
               <label htmlFor="username" className="text-gray-500"></label>
@@ -137,15 +149,6 @@ const Login = () => {
             </a>
           </div>
         </div>
-        
-        <div className="w-full p-1" style={{ marginTop: "50px" }}>
-          <img
-            src="https://i.ibb.co/GxmSCf0/image-2023-10-10-193405106-removebg-preview-1-1.png"
-            alt=""
-            className="w-180 h-60 mx-8"
-          />
-        </div>
-        
       </div>
     </div>
   );
