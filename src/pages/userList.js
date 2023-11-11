@@ -97,7 +97,24 @@ const UserList = () => {
       });
   };
 
-  
+  const handleDeleteUser = (userId) => {
+    setLoading(true);
+
+    UserService.deleteUser(userId)
+      .then(() => {
+        setUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));
+        setSuccessMessage("User deleted successfully.");
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 5000);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error deleting user:", error);
+        setLoading(false);
+      });
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-200 to-indigo-400 flex items-center justify-center">
       <div className="flex flex-wrap justify-center">
@@ -126,10 +143,10 @@ const UserList = () => {
             >
               <div className="text-center">
                 <h3 className="text-xl font-semibold text-gray-800">
-                  <FontAwesomeIcon icon={faUser} /> {user.username} {/* Icon for name */}
+                  <FontAwesomeIcon icon={faUser} /> {user.username}
                 </h3>
                 <p className="text-sm text-gray-600">
-                  <FontAwesomeIcon icon={faEnvelope} /> {user.email} {/* Icon for email */}
+                  <FontAwesomeIcon icon={faEnvelope} /> {user.email}
                 </p>
                 <div className="mt-2">
                   {user.roles.map((roleId) => (
@@ -141,29 +158,37 @@ const UserList = () => {
                     </span>
                   ))}
                 </div>
-              </div>
-              {user.roles.includes("653a4db64bcb085afa06453a") ? (
-                <p className="text-center text-green-500 font-semibold"></p>
-              ) : (
                 <div className="text-center">
-                  {user.roles.includes("653a4db64bcb085afa064538") && (
-                    <button
-                      onClick={() => handleRoleChange(user._id, "ROLE_ADMIN")}
-                      className="block bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white font-bold py-2 px-4 rounded mt-2"
-                    >
-                      Promote
-                    </button>
-                  )}
-                  {user.roles.includes("653a4db64bcb085afa064539") && (
-                    <button
-                      onClick={() => handleRoleChange(user._id, "ROLE_USER")}
-                      className="block bg-gradient-to-r from-red-400 to-red-600 hover:from-red-500 hover:to-red-700 text-white font-bold py-2 px-4 rounded mt-2"
-                    >
-                      Demote
-                    </button>
+                  {user.roles.includes("653a4db64bcb085afa06453a") ? (
+                    <p className="text-center text-green-500 font-semibold"></p>
+                  ) : (
+                    <div className="text-center">
+                      {user.roles.includes("653a4db64bcb085afa064538") && (
+                        <button
+                          onClick={() => handleRoleChange(user._id, "ROLE_ADMIN")}
+                          className="block bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white font-bold py-2 px-4 rounded mt-2"
+                        >
+                          Promote
+                        </button>
+                      )}
+                      {user.roles.includes("653a4db64bcb085afa064539") && (
+                        <button
+                          onClick={() => handleRoleChange(user._id, "ROLE_USER")}
+                          className="block bg-gradient-to-r from-red-400 to-red-600 hover:from-red-500 hover:to-red-700 text-white font-bold py-2 px-4 rounded mt-2"
+                        >
+                          Demote
+                        </button>
+                      )}
+                      <button
+                        onClick={() => handleDeleteUser(user._id)}
+                        className="block bg-gradient-to-r from-red-400 to-red-600 hover:from-red-500 hover:to-red-700 text-white font-bold py-2 px-4 rounded mt-2"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   )}
                 </div>
-              )}
+              </div>
             </div>
           ))
         )}
