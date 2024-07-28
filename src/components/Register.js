@@ -126,7 +126,7 @@ const Register = (props) => {
             REGISTER
           </h2>
             <img
-              src="https://i.ibb.co/h11cQvB/imgonline-com-ua-twotoone-SNcgab-P2fb-Oatl-G3.png"
+              src="https://img.freepik.com/free-vector/welcome-sticker-with-swirling-text-with-paper-effect-shadow_1284-43001.jpg"
               alt=""
               className="w-60 h-30 mx-8"
             />
