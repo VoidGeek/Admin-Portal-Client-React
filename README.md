@@ -1,4 +1,4 @@
-## React Login and Registration example with JWT and HttpOnly cookie
+## React Login and Registration example with JWT and HttpOnly cookie with Admin Portal to manage the projects, testimonials, feeds and services
 
 Build React JWT Authentication and Authorization example using React Hooks, React Router, Axios and Bootstrap (without Redux):
 - JWT Authentication Flow for User Signup & User Login
